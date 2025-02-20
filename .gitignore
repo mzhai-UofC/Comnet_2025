@@ -483,3 +483,5 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 skinet/API/appsettings.json
+.vscode/launch.json
+.vscode/tasks.json
