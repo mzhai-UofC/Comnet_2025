@@ -9,4 +9,8 @@
   font-size: 32px;
   width: 32px;
   height: 32px;
+}
+
+a.active {
+  color: #7d00fa;
 }/*# sourceMappingURL=header.component.css.map */
