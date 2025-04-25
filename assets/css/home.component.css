@@ -1,0 +1,134 @@
+.homepage {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  background-color: #f0f8ff;
+  padding: 20px;
+}
+.homepage .intro,
+.homepage .free-reading,
+.homepage .recent-updates {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+.homepage .intro {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.homepage .intro .comic-cover {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.homepage .intro .intro-text {
+  max-width: 600px;
+}
+.homepage .intro .intro-text .title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+.homepage .intro .intro-text .description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.homepage .intro .intro-text .cta-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.homepage .intro .intro-text .cta-button:hover {
+  background-color: #0056b3;
+}
+.homepage .free-reading {
+  text-align: center;
+}
+.homepage .free-reading .section-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+.homepage .free-reading .comic-preview {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.homepage .free-reading .comic-preview img {
+  width: 150px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.homepage .free-reading .cta-button {
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.homepage .free-reading .cta-button:hover {
+  background-color: #0056b3;
+}
+.homepage .recent-updates .section-title {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+.homepage .recent-updates .updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.homepage .recent-updates .updates-list .update-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.homepage .recent-updates .updates-list .update-item img {
+  width: 100px;
+  border-radius: 5px;
+}
+.homepage .recent-updates .updates-list .update-item .update-info .update-title {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+.homepage .recent-updates .updates-list .update-item .update-info .update-date {
+  font-size: 0.9rem;
+  color: #888;
+}
+.homepage .visit-shop {
+  text-align: center;
+  margin-top: 40px;
+}
+.homepage .visit-shop .cta-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.homepage .visit-shop .cta-button:hover {
+  background-color: #0056b3;
+}/*# sourceMappingURL=home.component.css.map */

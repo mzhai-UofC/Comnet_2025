@@ -1,0 +1,161 @@
+.homepage {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f0f8ff; // 浅蓝色背景
+    padding: 20px;
+  
+    .intro,
+    .free-reading,
+    .recent-updates {
+      max-width: 1200px;
+      margin: 0 auto; // 居中对齐
+      padding: 20px;
+      background-color: #ffffff; // 白色背景
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+  
+    .intro {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  
+      .comic-cover {
+        width: 300px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .intro-text {
+        max-width: 600px;
+  
+        .title {
+          font-size: 2.5rem;
+          color: #007bff; // 蓝色标题
+          margin-bottom: 10px;
+        }
+  
+        .description {
+          font-size: 1.2rem;
+          line-height: 1.6;
+          margin-bottom: 20px;
+        }
+  
+        .cta-button {
+          background-color: #007bff; // 蓝色按钮
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: background-color 0.3s;
+  
+          &:hover {
+            background-color: #0056b3; // 深蓝色悬停效果
+          }
+        }
+      }
+    }
+  
+    .free-reading {
+      text-align: center;
+  
+      .section-title {
+        font-size: 2rem;
+        color: #007bff; // 蓝色标题
+        margin-bottom: 20px;
+      }
+  
+      .comic-preview {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+  
+        img {
+          width: 150px;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      .cta-button {
+        margin-top: 20px;
+        background-color: #007bff; // 蓝色按钮
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3; // 深蓝色悬停效果
+        }
+      }
+    }
+  
+    .recent-updates {
+      .section-title {
+        font-size: 2rem;
+        color: #007bff; // 蓝色标题
+        margin-bottom: 20px;
+      }
+  
+      .updates-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+  
+        .update-item {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          background-color: #ffffff; // 白色背景
+          padding: 15px;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+          img {
+            width: 100px;
+            border-radius: 5px;
+          }
+  
+          .update-info {
+            .update-title {
+              font-size: 1.2rem;
+              color: #333;
+              margin-bottom: 5px;
+            }
+  
+            .update-date {
+              font-size: 0.9rem;
+              color: #888;
+            }
+          }
+        }
+      }
+    }
+  
+    .visit-shop {
+      text-align: center;
+      margin-top: 40px;
+  
+      .cta-button {
+        background-color: #007bff; // 蓝色按钮
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #0056b3; // 深蓝色悬停效果
+        }
+      }
+    }
+  }
