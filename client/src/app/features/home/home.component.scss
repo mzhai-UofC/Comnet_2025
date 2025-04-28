@@ -1,49 +1,30 @@
 .homepage {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    background-color: #f0f8ff; // 浅蓝色背景
-    padding: 20px;
-  
-    .intro,
-    .free-reading,
-    .recent-updates {
-      max-width: 1200px;
-      margin: 0 auto; // 居中对齐
-      padding: 20px;
-      background-color: #ffffff; // 白色背景
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-bottom: 40px;
-    }
-  
-    .intro {
+  .intro {
+    .intro-content {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 20px;
-  
-      .comic-cover {
-        width: 300px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-  
+
       .intro-text {
-        max-width: 600px;
-  
+        flex: 2; /* 占 2/3 的宽度 */
+        text-align: left;
+
         .title {
-          font-size: 2.5rem;
-          color: #007bff; // 蓝色标题
+          font-size: 2rem;
+          color: #0056b3;
           margin-bottom: 10px;
         }
-  
+
         .description {
           font-size: 1.2rem;
-          line-height: 1.6;
+          color: #333;
+          line-height: 1.5;
           margin-bottom: 20px;
+          margin-top: 20px;
         }
-  
+
         .cta-button {
-          background-color: #007bff; // 蓝色按钮
+          background-color: #0056b3;
           color: #fff;
           padding: 10px 20px;
           border: none;
@@ -51,110 +32,211 @@
           font-size: 1rem;
           cursor: pointer;
           transition: background-color 0.3s;
-  
+
           &:hover {
-            background-color: #0056b3; // 深蓝色悬停效果
+            background-color: #003d80;
+          }
+
+          &.secondary {
+            background-color: #888; /* 灰色背景 */
+            margin-left: 10px; /* 按钮之间的间距 */
+
+            &:hover {
+              background-color: #666; /* 悬停时更深的灰色 */
+            }
           }
         }
-      }
-    }
-  
-    .free-reading {
-      text-align: center;
-  
-      .section-title {
-        font-size: 2rem;
-        color: #007bff; // 蓝色标题
-        margin-bottom: 20px;
-      }
-  
-      .comic-preview {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-  
-        img {
-          width: 150px;
-          border-radius: 5px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-      }
-  
-      .cta-button {
-        margin-top: 20px;
-        background-color: #007bff; // 蓝色按钮
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #0056b3; // 深蓝色悬停效果
-        }
-      }
-    }
-  
-    .recent-updates {
-      .section-title {
-        font-size: 2rem;
-        color: #007bff; // 蓝色标题
-        margin-bottom: 20px;
-      }
-  
-      .updates-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-  
-        .update-item {
+
+        .button-group {
           display: flex;
-          align-items: center;
-          gap: 20px;
-          background-color: #ffffff; // 白色背景
-          padding: 15px;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
-          img {
-            width: 100px;
-            border-radius: 5px;
-          }
-  
-          .update-info {
-            .update-title {
-              font-size: 1.2rem;
-              color: #333;
-              margin-bottom: 5px;
-            }
-  
-            .update-date {
-              font-size: 0.9rem;
-              color: #888;
-            }
-          }
+          gap: 40px; /* 按钮之间的间距 */
+          margin-top: 40px;
+        }
+      }
+
+      .intro-image {
+        flex: 1; /* 占 1/3 的宽度 */
+        text-align: center;
+
+        .comic-cover {
+          max-width: 80%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
       }
     }
+    /* 新增的作者信息区域样式 */
+    .comic-info {
+      margin-top: 20px;
+      display: flex; /* 使用 flexbox 布局 */
+      justify-content:flex-start; /* 均匀分布内容 */
+      align-items: center; /* 垂直居中 */
+      padding: 10px 5px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #333;
+
+      span {
+        margin: 0 10px; /* 每个内容块之间的间距 */
+
+        strong {
+          color: #0056b3; /* 强调文字颜色 */
+        }
+      }
+    }
+  }
+
+  .unified-section {
+    margin: 40px 0;
+    padding: 20px;
+    border: 1px solid #ccc; /* 灰色边框包裹模块 */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    color: #0056b3;
+    margin-bottom: 60px;
+    padding: 10px;
+    border-bottom: 2px solid #ccc; /* 标题下方边界 */
+    text-align: left;
+  }
+
+  .comic-preview,
+  .updates-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .chapter-item,
+  .update-item {
+    flex: 1 1 calc(25% - 20px);
+    max-width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    p,
+    h3 {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .visit-shop {
+    text-align: center;
+
+    .cta-button {
+      background-color: #0056b3;
+      color: #fff;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #003d80;
+      }
+    }
+  }
+
   
-    .visit-shop {
-      text-align: center;
-      margin-top: 40px;
-  
-      .cta-button {
-        background-color: #007bff; // 蓝色按钮
-        color: #fff;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background-color 0.3s;
-  
-        &:hover {
-          background-color: #0056b3; // 深蓝色悬停效果
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8); // 半透明背景
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    
+      .modal-content {
+        position: relative;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 720px;
+        max-height: 90%; // 限制模态窗口高度
+        width: 90%;
+        overflow-y: auto; // 启用垂直滚动条
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      
+        .next-story-container {
+          text-align: center;
+          margin-top: 20px;
+      
+          .next-story-button {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+      
+            &:hover {
+              background-color: #003d80;
+            }
+          }
+        }
+      
+    
+        .close-button {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: #333;
+          z-index: 1100; /* 确保按钮在最上层 */
+    
+          &:hover {
+            color: #0056b3;
+          }
+        }
+    
+        .chapter-pages {
+          display: flex;
+          flex-direction: column;
+          gap: 20px; // 图片之间的间距
+    
+          .page-container {
+            text-align: center;
+    
+            img {
+              width: 100%; // 图片宽度适应容器
+              height: auto;
+              border-radius: 5px;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            }
+          }
         }
       }
     }

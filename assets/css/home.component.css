@@ -1,134 +1,212 @@
-.homepage {
-  font-family: "Poppins", sans-serif;
-  color: #333;
-  background-color: #f0f8ff;
-  padding: 20px;
-}
-.homepage .intro,
-.homepage .free-reading,
-.homepage .recent-updates {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 40px;
-}
+@charset "UTF-8";
 .homepage .intro {
+  /* 新增的作者信息区域样式 */
+}
+.homepage .intro .intro-content {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
 }
-.homepage .intro .comic-cover {
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.homepage .intro .intro-content .intro-text {
+  flex: 2; /* 占 2/3 的宽度 */
+  text-align: left;
 }
-.homepage .intro .intro-text {
-  max-width: 600px;
-}
-.homepage .intro .intro-text .title {
-  font-size: 2.5rem;
-  color: #007bff;
+.homepage .intro .intro-content .intro-text .title {
+  font-size: 2rem;
+  color: #0056b3;
   margin-bottom: 10px;
 }
-.homepage .intro .intro-text .description {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-.homepage .intro .intro-text .cta-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.homepage .intro .intro-text .cta-button:hover {
-  background-color: #0056b3;
-}
-.homepage .free-reading {
-  text-align: center;
-}
-.homepage .free-reading .section-title {
-  font-size: 2rem;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-.homepage .free-reading .comic-preview {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-.homepage .free-reading .comic-preview img {
-  width: 150px;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.homepage .free-reading .cta-button {
-  margin-top: 20px;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.homepage .free-reading .cta-button:hover {
-  background-color: #0056b3;
-}
-.homepage .recent-updates .section-title {
-  font-size: 2rem;
-  color: #007bff;
-  margin-bottom: 20px;
-}
-.homepage .recent-updates .updates-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.homepage .recent-updates .updates-list .update-item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.homepage .recent-updates .updates-list .update-item img {
-  width: 100px;
-  border-radius: 5px;
-}
-.homepage .recent-updates .updates-list .update-item .update-info .update-title {
+.homepage .intro .intro-content .intro-text .description {
   font-size: 1.2rem;
   color: #333;
-  margin-bottom: 5px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
-.homepage .recent-updates .updates-list .update-item .update-info .update-date {
-  font-size: 0.9rem;
-  color: #888;
+.homepage .intro .intro-content .intro-text .cta-button {
+  background-color: #0056b3;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.homepage .intro .intro-content .intro-text .cta-button:hover {
+  background-color: #003d80;
+}
+.homepage .intro .intro-content .intro-text .cta-button.secondary {
+  background-color: #888; /* 灰色背景 */
+  margin-left: 10px; /* 按钮之间的间距 */
+}
+.homepage .intro .intro-content .intro-text .cta-button.secondary:hover {
+  background-color: #666; /* 悬停时更深的灰色 */
+}
+.homepage .intro .intro-content .intro-text .button-group {
+  display: flex;
+  gap: 40px; /* 按钮之间的间距 */
+  margin-top: 40px;
+}
+.homepage .intro .intro-content .intro-image {
+  flex: 1; /* 占 1/3 的宽度 */
+  text-align: center;
+}
+.homepage .intro .intro-content .intro-image .comic-cover {
+  max-width: 80%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.homepage .intro .comic-info {
+  margin-top: 20px;
+  display: flex; /* 使用 flexbox 布局 */
+  justify-content: flex-start; /* 均匀分布内容 */
+  align-items: center; /* 垂直居中 */
+  padding: 10px 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+}
+.homepage .intro .comic-info span {
+  margin: 0 10px; /* 每个内容块之间的间距 */
+}
+.homepage .intro .comic-info span strong {
+  color: #0056b3; /* 强调文字颜色 */
+}
+.homepage .unified-section {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid #ccc; /* 灰色边框包裹模块 */
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.homepage .section-title {
+  font-size: 1.8rem;
+  color: #0056b3;
+  margin-bottom: 60px;
+  padding: 10px;
+  border-bottom: 2px solid #ccc; /* 标题下方边界 */
+  text-align: left;
+}
+.homepage .comic-preview,
+.homepage .updates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.homepage .chapter-item,
+.homepage .update-item {
+  flex: 1 1 calc(25% - 20px);
+  max-width: 300px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.homepage .chapter-item img,
+.homepage .update-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.homepage .chapter-item p,
+.homepage .chapter-item h3,
+.homepage .update-item p,
+.homepage .update-item h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+.homepage .chapter-item:hover,
+.homepage .update-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .homepage .visit-shop {
   text-align: center;
-  margin-top: 40px;
 }
 .homepage .visit-shop .cta-button {
-  background-color: #007bff;
+  background-color: #0056b3;
   color: #fff;
-  padding: 15px 30px;
+  padding: 12px 25px;
   border: none;
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 .homepage .visit-shop .cta-button:hover {
+  background-color: #003d80;
+}
+.homepage .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.homepage .modal .modal-content {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 720px;
+  max-height: 90%;
+  width: 90%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.homepage .modal .modal-content .next-story-container {
+  text-align: center;
+  margin-top: 20px;
+}
+.homepage .modal .modal-content .next-story-container .next-story-button {
   background-color: #0056b3;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.homepage .modal .modal-content .next-story-container .next-story-button:hover {
+  background-color: #003d80;
+}
+.homepage .modal .modal-content .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  z-index: 1100; /* 确保按钮在最上层 */
+}
+.homepage .modal .modal-content .close-button:hover {
+  color: #0056b3;
+}
+.homepage .modal .modal-content .chapter-pages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.homepage .modal .modal-content .chapter-pages .page-container {
+  text-align: center;
+}
+.homepage .modal .modal-content .chapter-pages .page-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }/*# sourceMappingURL=home.component.css.map */
