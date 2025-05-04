@@ -35,17 +35,17 @@
 }
 
 <mat-menu #menu="matMenu" class="px-5">
-    <button mat-menu-item class="px-3" routerLink="/cart">
+    <button mat-menu-item class="flex items-center px-3 gap-4 my-2" routerLink="/cart">
         <mat-icon>shopping_cart</mat-icon>
-        My cart
+        <span>My cart</span>
     </button>
-    <button mat-menu-item class="px-3" routerLink="/orders">
+    <button mat-menu-item class="flex items-center px-3 gap-4" routerLink="/orders">
         <mat-icon>history</mat-icon>
-        My orders
+        <span>My orders</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-menu-item class="px-3" (click)="logout()">
+    <button mat-menu-item class="flex items-center px-3 gap-4" (click)="logout()">
         <mat-icon>logout</mat-icon>
-        Logout
+        <span>Logout</span>
     </button>
 </mat-menu>
