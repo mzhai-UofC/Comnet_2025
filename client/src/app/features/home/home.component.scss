@@ -240,4 +240,67 @@
         }
       }
     }
+     /* 响应式设计 */
+  @media (max-width: 1024px) { /* iPad 横屏 */
+    .intro-content {
+      flex-direction: column; /* 改为上下布局 */
+      align-items: center;
+
+      .intro-text {
+        flex: unset;
+        text-align: center;
+
+        .button-group {
+          justify-content: center;
+        }
+      }
+
+      .intro-image {
+        margin-top: 20px;
+      }
+    }
+
+    .free-reading .comic-preview .chapter-item,
+    .recent-updates .updates-list .update-item {
+      flex: 1 1 calc(50% - 20px); /* 每行 2 个 */
+    }
   }
+
+  @media (max-width: 768px) { /* 手机模式 */
+    .intro-content {
+      flex-direction: column;
+      align-items: center;
+  
+      .intro-text {
+        text-align: center;
+  
+        .title {
+          font-size: 1.2rem; /* 缩小标题字体 */
+        }
+  
+        .description {
+          font-size: 0.9rem; /* 缩小描述字体 */
+          line-height: 1.4; /* 调整行高以适应更小的字体 */
+        }
+  
+        .button-group {
+          flex-direction: column; /* 按钮改为上下排列 */
+          gap: 10px;
+        }
+      }
+  
+      .intro-image {
+        margin-top: 20px;
+  
+        .comic-cover {
+          max-width: 100%; /* 图片宽度适应屏幕 */
+        }
+      }
+    }
+  
+    .free-reading .comic-preview .chapter-item,
+    .recent-updates .updates-list .update-item {
+      flex: 1 1 100%; /* 每行 1 个 */
+    }
+  }
+ }

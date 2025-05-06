@@ -1,4 +1,7 @@
 @charset "UTF-8";
+.homepage {
+  /* 响应式设计 */
+}
 .homepage .intro {
   /* 新增的作者信息区域样式 */
 }
@@ -209,4 +212,56 @@
   height: auto;
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 1024px) {
+  .homepage { /* iPad 横屏 */ }
+  .homepage .intro-content {
+    flex-direction: column; /* 改为上下布局 */
+    align-items: center;
+  }
+  .homepage .intro-content .intro-text {
+    flex: unset;
+    text-align: center;
+  }
+  .homepage .intro-content .intro-text .button-group {
+    justify-content: center;
+  }
+  .homepage .intro-content .intro-image {
+    margin-top: 20px;
+  }
+  .homepage .free-reading .comic-preview .chapter-item,
+  .homepage .recent-updates .updates-list .update-item {
+    flex: 1 1 calc(50% - 20px); /* 每行 2 个 */
+  }
+}
+@media (max-width: 768px) {
+  .homepage { /* 手机模式 */ }
+  .homepage .intro-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .homepage .intro-content .intro-text {
+    text-align: center;
+  }
+  .homepage .intro-content .intro-text .title {
+    font-size: 1.2rem; /* 缩小标题字体 */
+  }
+  .homepage .intro-content .intro-text .description {
+    font-size: 0.9rem; /* 缩小描述字体 */
+    line-height: 1.4; /* 调整行高以适应更小的字体 */
+  }
+  .homepage .intro-content .intro-text .button-group {
+    flex-direction: column; /* 按钮改为上下排列 */
+    gap: 10px;
+  }
+  .homepage .intro-content .intro-image {
+    margin-top: 20px;
+  }
+  .homepage .intro-content .intro-image .comic-cover {
+    max-width: 100%; /* 图片宽度适应屏幕 */
+  }
+  .homepage .free-reading .comic-preview .chapter-item,
+  .homepage .recent-updates .updates-list .update-item {
+    flex: 1 1 100%; /* 每行 1 个 */
+  }
 }/*# sourceMappingURL=home.component.css.map */

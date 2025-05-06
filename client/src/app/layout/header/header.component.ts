@@ -9,6 +9,7 @@ import { CartService } from '../../core/services/cart.service';
 import { AccountService } from '../../core/services/account.service';
 import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
 import { MatDivider } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -22,7 +23,8 @@ import { MatDivider } from '@angular/material/divider';
     MatProgressBar,
     MatMenu,
     MatDivider,
-    MatMenuTrigger
+    MatMenuTrigger,
+    CommonModule, // 添加 CommonModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
@@ -32,6 +34,7 @@ export class HeaderComponent {
   cartService = inject(CartService);
   accountService = inject(AccountService);
   private router = inject(Router);
+  isUserActionsHidden = true; // 控制用户操作区域显示状态
 
   logout(){
     this.accountService.logout().subscribe({
@@ -43,4 +46,9 @@ export class HeaderComponent {
       
     })
   }
+
+  toggleUserActions() {
+    this.isUserActionsHidden = !this.isUserActionsHidden; // 切换用户操作区域显示状态
+  }
+
 }

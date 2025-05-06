@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* 全局样式 */
+:host {
+  display: block;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+/* 顶部区域样式 */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.relative {
+  position: relative;
+}
+
+button.match-input-height {
+  height: 100%;
+}
+
+/* 产品网格样式 */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+form .relative {
+  position: relative;
+  width: 100%;
+}
+form input[type=search] {
+  width: 100%;
+  padding: 0.5rem 3rem 0.5rem 0.75rem; /* 为按钮预留右侧空间 */
+  font-size: 0.875rem; /* 调整字体大小 */
+  border-radius: 0.5rem; /* 圆角 */
+  outline: none;
+}
+form input[type=search]:focus {
+  border-color: var(--mat-primary); /* 聚焦时的边框颜色 */
+}
+form button {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem; /* 圆角 */
+  cursor: pointer;
+}
+form button mat-icon {
+  font-size: 1rem; /* 调整图标大小 */
+}/*# sourceMappingURL=shop.component.css.map */

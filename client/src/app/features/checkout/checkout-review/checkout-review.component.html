@@ -1,27 +1,35 @@
 <div class="mt-4 w-full">
-    <h4 class="text-lg font-semibold">Billing and delivery information</h4>
-    <dl>
-        <dt class="font-medium">Shipping address</dt>
-        <dd class="mt-1 text-gray-500">{{confirmationToken?.shipping | address}}</dd>
-        <dt class="font-medium">Payment details</dt>
-        <dd class="mt-1 text-gray-500">{{confirmationToken?.payment_method_preview | paymentCard}}</dd>
+    <h4 class="text-lg font-semibold text-center md:text-left">Billing and delivery information</h4>
+    <dl class="mt-4 space-y-4">
+        <div>
+            <dt class="font-medium">Shipping address</dt>
+            <dd class="mt-1 text-gray-500">{{confirmationToken?.shipping | address}}</dd>
+        </div>
+        <div>
+            <dt class="font-medium">Payment details</dt>
+            <dd class="mt-1 text-gray-500">{{confirmationToken?.payment_method_preview | paymentCard}}</dd>
+        </div>
     </dl>
 </div>
 
 <div class="mt-6 mx-auto">
     <div class="border-b border-gray-200">
         <table class="w-full text-center">
+            <thead class="hidden md:table-header-group">
+                <tr>
+                    <th class="text-left p-4">Product</th>
+                    <th class="p-4">Quantity</th>
+                    <th class="text-right p-4">Price</th>
+                </tr>
+            </thead>
             <tbody class="divide-y divide-gray-200">
                 @for (item of cartService.cart()?.items; track item.productId) {
-                    <tr>
-                        <td class="py-4">
-                            <div class="flex items-center gap-4">
-                                <img src="{{item.pictureUrl}}" alt="product image" 
-                                    class="w-10 h-10">
-                                <span>{{item.productName}}</span>
-                            </div>
+                    <tr class="flex flex-col md:table-row items-start md:items-center">
+                        <td class="py-4 flex items-center gap-4">
+                            <img src="{{item.pictureUrl}}" alt="product image" class="w-16 h-16 rounded-lg">
+                            <span class="text-sm md:text-base">{{item.productName}}</span>
                         </td>
-                        <td class="p-4">x{{item.quantity}}</td>
+                        <td class="p-4 text-left md:text-center">x{{item.quantity}}</td>
                         <td class="p-4 text-right">{{item.price | currency}}</td>
                     </tr>
                 }

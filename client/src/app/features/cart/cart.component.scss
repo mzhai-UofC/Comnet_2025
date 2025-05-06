@@ -1,0 +1,38 @@
+/* Section Styling */
+// section {
+//     padding: 2rem 1rem;
+
+//     @media (min-width: 768px) {
+//         padding: 4rem 2rem;
+//     }
+// }
+
+/* Cart Items and Order Summary Layout */
+.flex {
+    display: flex;
+    flex-direction: column; /* 默认垂直布局，适合手机模式 */
+    gap: 1.5rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row; /* 在大屏幕切换为水平布局 */
+        gap: 2rem;
+    }
+}
+
+/* Cart Items */
+.w-full {
+    width: 100%; /* 在手机模式下占满宽度 */
+}
+
+.lg\:w-3\/4 {
+    @media (min-width: 1024px) {
+        width: 75%; /* 在大屏幕占 3/4 宽度 */
+    }
+}
+
+/* Order Summary */
+.lg\:w-1\/4 {
+    @media (min-width: 1024px) {
+        width: 25%; /* 在大屏幕占 1/4 宽度 */
+    }
+}

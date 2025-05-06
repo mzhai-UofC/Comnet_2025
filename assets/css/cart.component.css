@@ -1,0 +1,32 @@
+@charset "UTF-8";
+/* Section Styling */
+/* Cart Items and Order Summary Layout */
+.flex {
+  display: flex;
+  flex-direction: column; /* 默认垂直布局，适合手机模式 */
+  gap: 1.5rem;
+}
+@media (min-width: 1024px) {
+  .flex {
+    flex-direction: row; /* 在大屏幕切换为水平布局 */
+    gap: 2rem;
+  }
+}
+
+/* Cart Items */
+.w-full {
+  width: 100%; /* 在手机模式下占满宽度 */
+}
+
+@media (min-width: 1024px) {
+  .lg\:w-3\/4 {
+    width: 75%; /* 在大屏幕占 3/4 宽度 */
+  }
+}
+
+/* Order Summary */
+@media (min-width: 1024px) {
+  .lg\:w-1\/4 {
+    width: 25%; /* 在大屏幕占 1/4 宽度 */
+  }
+}/*# sourceMappingURL=cart.component.css.map */

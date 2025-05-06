@@ -1,0 +1,44 @@
+/* Checkout Container */
+.checkout-container {
+    display: flex;
+    flex-direction: column-reverse; /* 默认在手机模式下，order-summary 在上 */
+    gap: 1.5rem;
+
+    @media (min-width: 1024px) {
+        flex-direction: row; /* 在平板和网页模式下切换为水平布局 */
+        align-items: flex-start; /* 确保右侧模块与左侧顶部对齐 */
+    }
+}
+
+/* Order Summary Section */
+.order-summary {
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        width: 25%; /* 在网页模式下占 1/4 宽度 */
+        margin-top: 0; /* 确保与左侧对齐 */
+    }
+}
+
+/* Stepper Section */
+mat-stepper {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #e5e7eb; /* Tailwind's gray-200 */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column-reverse; /* 在手机模式下，order-summary 在上 */
+    }
+
+    button {
+        width: auto; /* 在手机模式下按钮占满宽度 */
+        padding: 0.5rem 1rem; /* 减小按钮的内边距 */
+        font-size: 0.875rem; /* 缩小按钮的字体大小 */
+        border-radius: 0.25rem; /* 保持圆角样式 */
+    }
+}

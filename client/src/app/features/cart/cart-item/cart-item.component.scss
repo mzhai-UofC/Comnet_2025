@@ -1,0 +1,126 @@
+/* Cart Item Container */
+.cart-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    @media (min-width: 768px) {
+        flex-direction: row; /* 在平板和网页模式切换为水平布局 */
+        align-items: center;
+    }
+}
+
+/* Product Image */
+.product-image {
+    border-radius: 0.25rem;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    @media (min-width: 768px) {
+        width: 150px; /* 在平板和网页模式限制图片宽度 */
+        height: 150px;
+    }
+}
+
+/* Product Details */
+.product-details {
+    text-align: left;
+
+    @media (min-width: 768px) {
+        text-align: left;
+    }
+}
+
+.product-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Actions (Delete Button) */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        justify-content: flex-start;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+
+        mat-icon {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+/* Quantity and Price */
+.quantity-price {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 0.25rem;
+        background-color: transparent;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f5f5f5;
+        }
+
+        mat-icon {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: right;
+
+    @media (max-width: 768px) {
+        text-align: center;
+    }
+}

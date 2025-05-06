@@ -1,32 +1,17 @@
-<div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm mb-4">
-    <div class="flex items-center justify-between gap-6">
-        <a routerLink="/shop/{{item().productId}}" class="shrink order-1">
-            <img src="{{item().pictureUrl}}" alt="product image" class="h-20 w-20">
+<div class="cart-item rounded-lg border border-gray-200 bg-white p-4 shadow-sm mb-4">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Product Image -->
+        <a routerLink="/shop/{{item().productId}}" class="shrink-0 order-1">
+            <img src="{{item().pictureUrl}}" alt="product image" class="product-image">
         </a>
-        <div class="flex items-center justify-between order-3">
-            <div class="flex items-center align-middle gap-3">
-                <button mat-icon-button (click)="decrementQuantity()">
-                    <mat-icon class="text-red-600">remove</mat-icon>
-                </button>
 
-                <div class="font-semibold text-xl mb-1">{{item().quantity}}</div>
-
-                <button mat-icon-button (click)="incrementQuantity()">
-                    <mat-icon class="text-green-600">add</mat-icon>
-                </button>
-            </div>
-
-            <div class="text-end order-4 w-32">
-                <p class="font-bold text-xl">{{item().price | currency}}</p>
-            </div>
-        </div>
-
-        <div class="w-full flex-1 space-y-4 order-2 max-w-md">
-            <a routerLink="/shop/{{item().productId}}" class="font-medium">
+        <!-- Product Details -->
+        <div class="product-details w-full flex-1 space-y-4 order-2 text-left md:text-left">
+            <a routerLink="/shop/{{item().productId}}" class="product-name font-medium text-lg">
                 {{item().productName}}
             </a>
 
-            <div class="flex items-center gap-4">
+            <div class="actions flex items-center justify-center md:justify-start gap-4">
                 <button mat-button color="warn" (click)="removeItemFromCart()">
                     <mat-icon>delete</mat-icon>
                     Delete
@@ -34,5 +19,23 @@
             </div>
         </div>
 
+        <!-- Quantity and Price -->
+        <div class="quantity-price flex flex-col md:flex-row items-center justify-between order-3 gap-3 md:gap-6">
+            <div class="quantity-controls flex items-center align-middle gap-3">
+                <button mat-icon-button (click)="decrementQuantity()">
+                    <mat-icon class="text-red-600">remove</mat-icon>
+                </button>
+
+                <div class="quantity font-semibold text-xl mb-1">{{item().quantity}}</div>
+
+                <button mat-icon-button (click)="incrementQuantity()">
+                    <mat-icon class="text-green-600">add</mat-icon>
+                </button>
+            </div>
+
+            <div class="price text-end md:text-right w-32">
+                <p class="font-bold text-xl">{{item().price | currency}}</p>
+            </div>
+        </div>
     </div>
 </div>

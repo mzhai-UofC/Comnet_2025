@@ -1,43 +1,49 @@
 @if (product) {
     <section class="py-8">
         <div class="max-w-screen-2xl px-4 mx-auto">
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Product Image -->
                 <div class="max-w-xl mx-auto">
-                    <img class="w-full" src="{{product.pictureUrl}}" alt="product image">
+                    <img class="w-full rounded-lg" src="{{product.pictureUrl}}" alt="product image">
                 </div>
 
+                <!-- Product Details -->
                 <div>
-                    <h1 class="text-2xl font-semibold text-gray-900">{{product.name}}</h1>
+                    <h1 class="text-2xl font-semibold text-gray-900 text-left md:text-left">
+                        {{product.name}}
+                    </h1>
                     
-                    <p>You have {{quantityInCart}} of this item in your cart</p>
+                    <p class="text-left md:text-left">
+                        You have {{quantityInCart}} of this item in your cart
+                    </p>
                     
-                    <div class="mt-4 items-center gap-4 flex">
+                    <div class="mt-4 items-left gap-4 flex justify-center md:justify-start">
                         <p class="text-3xl font-extrabold text-gray-900">
                             {{product.price | currency}}
                         </p>
                     </div>
 
-                    <div class="flex gap-4 mt-6">
+                    <mat-form-field appearance="outline" class="w-full md:w-auto mt-4">
+                        <mat-label>Quantity</mat-label>
+                        <input matInput min="0" [(ngModel)]="quantity" type="number" class="quantity-input">
+                    </mat-form-field>
+
+                    <div class="flex flex-col md:flex-row gap-4 items-center md:items-start">
                         <button [disabled]="quantity === quantityInCart" 
                             (click)="updateCart()"
-                            mat-flat-button class="match-input-height">
+                            mat-flat-button color="primary" class="w-full md:w-auto">
                             <mat-icon>shopping_cart</mat-icon>
                             {{getButtonText()}}
                         </button>
-
-                        <mat-form-field appearance="outline" class="flex">
-                            <mat-label>Quantity</mat-label>
-                            <input matInput min="0" [(ngModel)]="quantity" type="number">
-                        </mat-form-field>
                     </div>
 
-                    <mat-divider></mat-divider>
 
-                    <p class="mt-6 text-gray-500">
+                    <mat-divider class="my-6" style="margin-top: 24px;"></mat-divider>
+
+                    <p class="text-gray-500 text-left md:text-left" style="margin-top: 16px;"> 
                         {{product.description}}
                     </p>
                 </div>
-
             </div>
         </div>
     </section>

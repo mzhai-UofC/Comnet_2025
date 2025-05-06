@@ -1,7 +1,12 @@
-<header class="border-b shadow-md p-3 w-full max-h-20 fixed top-0 z-50 bg-white">
-    <div class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto">
-        <img routerLink="/" src="/images/logo_fatbun.png" alt="app logo" class="max-h-16">
-        <nav class="flex gap-3 my-2 uppercase text-2xl">
+<header class="border-b shadow-md p-3 w-full fixed top-0 z-50 bg-white">
+    <div class="flex flex-row items-center justify-between max-w-screen-2xl mx-auto">
+        <!-- Left Section: Logo -->
+        <div class="logo flex items-center">
+            <img routerLink="/" src="/images/logo_fatbun.png" alt="app logo" class="max-h-16">
+        </div>
+
+        <!-- Middle Section: Navigation Links -->
+        <nav class="nav-links flex flex-row gap-3 uppercase text-lg md:text-2xl">
             <a routerLink="/" 
                 routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}"
@@ -9,31 +14,70 @@
             <a routerLink="/shop" routerLinkActive="active">Shop</a>
             <a routerLink="/test-error" routerLinkActive="active">Errors</a>
         </nav>
-        <div class="flex gap-3 align-middle">
+
+        <!-- Right Section: Menu Button (Visible in Mobile Mode) -->
+        <button class="menu-button md:hidden" (click)="toggleUserActions()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- Right Section: User Actions (Visible in Desktop and iPad Mode) -->
+        <div class="user-actions flex gap-3 items-center md:flex">
+            <!-- Cart -->
             <a routerLink="/cart" routerLinkActive="active" 
                 matBadge="{{cartService.itemCount()}}" 
                 matBadgeSize="large" 
                 class="custom-badge mt-2 mr-2">
                 <mat-icon>shopping_cart</mat-icon>
             </a>
-            @if (accountService.currentUser()) {
+
+            <!-- User Menu -->
+            <ng-container *ngIf="accountService.currentUser(); else guestActions">
                 <button mat-button [matMenuTriggerFor]="menu">
                     <mat-icon>arrow_drop_down</mat-icon>
                     <span>{{accountService.currentUser()?.email}}</span>
                 </button>
-            } @else {
+            </ng-container>
+
+            <!-- Guest Actions -->
+            <ng-template #guestActions>
                 <button routerLink="/account/login" mat-stroked-button>Login</button>
                 <button routerLink="/account/register" mat-stroked-button>Register</button>
-            }
-
+            </ng-template>
         </div>
+    </div>
+
+    <!-- User Actions Section (Visible in Mobile Mode) -->
+    <div class="user-actions-mobile flex flex-col gap-3 items-center mt-3 md:hidden" [class.hidden]="isUserActionsHidden">
+        <!-- Cart -->
+        <a routerLink="/cart" routerLinkActive="active" 
+            matBadge="{{cartService.itemCount()}}" 
+            matBadgeSize="large" 
+            class="custom-badge mt-2 mr-2">
+            <mat-icon>shopping_cart</mat-icon>
+        </a>
+
+        <!-- User Menu -->
+        <ng-container *ngIf="accountService.currentUser(); else guestActions">
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>arrow_drop_down</mat-icon>
+                <span>{{accountService.currentUser()?.email}}</span>
+            </button>
+        </ng-container>
+
+        <!-- Guest Actions -->
+        <ng-template #guestActions>
+            <button routerLink="/account/login" mat-stroked-button>Login</button>
+            <button routerLink="/account/register" mat-stroked-button>Register</button>
+        </ng-template>
     </div>
 </header>
 
-@if (busyService.loading) {
+<!-- Loading Indicator -->
+<ng-container *ngIf="busyService.loading">
     <mat-progress-bar mode="indeterminate" class="fixed top-20 z-50"></mat-progress-bar>
-}
+</ng-container>
 
+<!-- User Menu -->
 <mat-menu #menu="matMenu" class="px-5">
     <button mat-menu-item class="flex items-center px-3 gap-4 my-2" routerLink="/cart">
         <mat-icon>shopping_cart</mat-icon>

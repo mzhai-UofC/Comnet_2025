@@ -1,18 +1,120 @@
-.custom-badge .mat-badge-content {
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-    line-height: 24px;
-}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-.custom-badge .mat-icon {
-    font-size: 32px;
-    width: 32px;
-    height: 32px;
-}
+    .menu-button {
+        display: none; /* 默认隐藏 */
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 100; /* 确保按钮在其他元素上方 */
+    }
 
-a {
-    &.active {
-        color: #7d00fa;
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* 居中导航链接 */
+        gap: 10px;
+        flex: 1; /* 占据中间的空间 */
+        a {
+            color: black; /* 默认文字颜色 */
+            text-decoration: none;
+    
+            &:hover {
+                color: gray; /* 悬停时的颜色 */
+            }
+    
+            &.active {
+                color: rgb(192, 72, 192); /* 被选中时的文字颜色 */
+                font-weight: bold; /* 可选：加粗选中文字 */
+            }
+        }
+    }
+
+    .user-actions {
+        display: flex; /* 默认显示 */
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .user-actions.hidden {
+        display: none; /* 隐藏用户操作区域 */
+    }
+
+    .user-actions-mobile {
+        display: none; /* 默认隐藏 */
+    }
+
+    .user-actions-mobile.hidden {
+        display: none; /* 隐藏用户操作区域 */
+    }
+
+    .user-actions-mobile:not(.hidden) {
+        display: flex; /* 显示用户操作区域 */
+    }
+
+    /* 手机模式 */
+    @media (max-width: 768px) {
+        .menu-button {
+            display: block; /* 在手机模式下显示按钮 */
+            position: absolute;
+            top: 10px;
+            right: 10px; /* 确保按钮在右上角 */
+        }
+
+        .user-actions {
+            display: none; /* 隐藏桌面模式的用户操作区域 */
+        }
+
+        .nav-links {
+            flex-direction: row; /* 保持导航链接水平排列 */
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .user-actions-mobile:not(.hidden) {
+            display: flex; /* 显示用户操作区域 */
+            flex-direction: column; /* 垂直排列 */
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-actions-mobile {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px; /* 用户操作区域与导航链接的间距 */
+        }
+    }
+
+    /* 网页和 iPad 模式 */
+    @media (min-width: 769px) {
+        .menu-button {
+            display: none; /* 隐藏菜单按钮 */
+        }
+
+        .nav-links {
+            flex: 1; /* 占据中间的空间 */
+            justify-content: center; /* 居中导航链接 */
+        }
+
+        .user-actions {
+            display: flex; /* 确保用户操作区域显示 */
+            flex: 0; /* 保持用户操作区域靠右 */
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-actions-mobile {
+            display: none; /* 确保移动模式的用户操作区域在网页模式下隐藏 */
+        }
     }
 }
