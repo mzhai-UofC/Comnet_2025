@@ -19,10 +19,13 @@
         <hr style="border: 1px dashed #ccc; margin: 10px 0;">
         
         <div class="button-group">
-          <button class="cta-button" onclick="window.location.href='/buy-comic'">Buy Comic Book</button>
-          <button class="cta-button secondary" onclick="window.location.href='/shop'">Go to Store</button>
+          <button mat-flat-button color="primary" onclick="window.location.href='/buy-comic'">
+            <mat-icon>menu_book</mat-icon> Buy Comic Book
+          </button>
+          <button mat-flat-button color="accent" onclick="window.location.href='/shop'">
+            <mat-icon>shopping_cart</mat-icon> Go to Store
+          </button>
         </div>
-        
       </div>
       <div class="intro-image">
         <img src="/images/comics/comic_cover.jpg" alt="Comic Cover" class="comic-cover" />
@@ -71,7 +74,7 @@
 
   <!-- Visit Shop 按钮 -->
   <div class="visit-shop">
-    <button class="cta-button" onclick="window.location.href='/shop'">Visit Shop</button>
+    <button mat-flat-button color="primary" onclick="window.location.href='/shop'"><mat-icon>shopping_cart</mat-icon>Purchase merchandise</button>
   </div>
 
   <!-- 模态窗口 -->
@@ -84,7 +87,7 @@
         </div>
       </div>
       <div class="next-story-container" *ngIf="isChapter">
-        <button class="next-story-button" (click)="goToNextStory()">Next Story</button>
+        <button mat-flat-button color="primary" (click)="goToNextStory()">Next Story</button>
       </div>
     </div>
   </div>

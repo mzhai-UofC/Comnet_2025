@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // 导入 CommonModule
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-home',
   standalone: true, // 声明为 standalone 组件
-  imports: [CommonModule], // 添加 CommonModule
+  imports: [CommonModule,
+    MatButton,
+    MatIcon
+  ], // 添加 CommonModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -46,7 +51,7 @@ export class HomeComponent {
 
   chapter4 = {
     name: "Chapter 4: Panpan's Wonderland",
-    thumbnail: '/assets/images/comic-thumbnail-3.jpg',
+    thumbnail: '/assets/images/comic-thumbnail-4.jpg',
     pages: [
       '/images/comics/comic14.jpg',
       '/images/comics/comic15.jpg',
@@ -63,14 +68,25 @@ export class HomeComponent {
   };
 
   // 打开模态窗口
-  openModal(content: any): void {
-    this.currentChapterPages = content.pages;
-    this.isChapter = [this.chapter1, this.chapter2, this.chapter3, this.chapter4].includes(content);
-    this.currentChapterIndex = this.isChapter
-      ? [this.chapter1, this.chapter2, this.chapter3, this.chapter4].indexOf(content)
-      : -1;
-    this.isModalOpen = true;
-  }
+openModal(content: any): void {
+  this.currentChapterPages = content.pages;
+  this.isChapter = [this.chapter1, this.chapter2, this.chapter3, this.chapter4].includes(content);
+  this.currentChapterIndex = this.isChapter
+    ? [this.chapter1, this.chapter2, this.chapter3, this.chapter4].indexOf(content)
+    : -1;
+  this.isModalOpen = true;
+
+  // 确保模态窗口内容加载完成后滚动到顶部
+  setTimeout(() => {
+    const modalElement = document.querySelector('.modal-content');
+    if (modalElement) {
+      modalElement.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, 100); // 延迟 100ms 确保内容加载完成
+}
+
 
   // 关闭模态窗口
   closeModal(): void {
@@ -79,14 +95,14 @@ export class HomeComponent {
   }
 
   // 跳转到下一个章节
-  goToNextStory(): void {
-    const chapters = [this.chapter1, this.chapter2, this.chapter3, this.chapter4];
-    const nextIndex = this.currentChapterIndex + 1;
-    if (nextIndex < chapters.length) {
-      const nextChapter = chapters[nextIndex];
-      this.openModal(nextChapter);
-    } else {
-      alert('This is the last chapter!');
-    }
+goToNextStory(): void {
+  const chapters = [this.chapter1, this.chapter2, this.chapter3, this.chapter4];
+  const nextIndex = this.currentChapterIndex + 1;
+  if (nextIndex < chapters.length) {
+    const nextChapter = chapters[nextIndex];
+    this.openModal(nextChapter);
+  } else {
+    alert('This is the last chapter!');
   }
+}
 }
