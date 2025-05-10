@@ -1,12 +1,13 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { OrderSummaryComponent } from "../../shared/components/order-summary/order-summary.component";
-import {MatStepper, MatStepperModule} from '@angular/material/stepper';
+import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatButton } from '@angular/material/button';
 import { Router, RouterLink } from '@angular/router';
 import { StripeService } from '../../core/services/stripe.service';
 import { ConfirmationToken, StripeAddressElement, StripeAddressElementChangeEvent, StripePaymentElement, StripePaymentElementChangeEvent } from '@stripe/stripe-js';
 import { SnackbarService } from '../../core/services/snackbar.service';
-import {MatCheckboxChange, MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { Address } from '../../shared/models/user';
 import { firstValueFrom } from 'rxjs';
@@ -15,7 +16,7 @@ import { CheckoutDeliveryComponent } from "./checkout-delivery/checkout-delivery
 import { CheckoutReviewComponent } from "./checkout-review/checkout-review.component";
 import { CartService } from '../../core/services/cart.service';
 import { CurrencyPipe, JsonPipe } from '@angular/common';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-checkout',
@@ -31,7 +32,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CurrencyPipe,
     JsonPipe,
     MatProgressSpinnerModule
-],
+  ],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss'
 })
@@ -40,21 +41,31 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   private snackbar = inject(SnackbarService);
   private router = inject(Router);
   private accountService = inject(AccountService);
+  private breakpointObserver = inject(BreakpointObserver);
   cartService = inject(CartService);
+
   addressElement?: StripeAddressElement;
   paymentElement?: StripePaymentElement;
   saveAddress = false;
-  completionStatus = signal<{address: boolean, card: boolean, delivery: boolean}>(
-    {address: false, card: false, delivery: false}
+  isMobile = false; // 用于动态设置 stepper 的方向
+  completionStatus = signal<{ address: boolean, card: boolean, delivery: boolean }>(
+    { address: false, card: false, delivery: false }
   );
   confirmationToken?: ConfirmationToken;
   loading = false;
 
   async ngOnInit() {
+    // 监听屏幕宽度变化
+    this.breakpointObserver
+      .observe([Breakpoints.Handset, Breakpoints.Tablet])
+      .subscribe(result => {
+        this.isMobile = result.matches; // 如果是手机或平板，设置为 true
+      });
+
     try {
       this.addressElement = await this.stripeService.createAddressElement();
       this.addressElement.mount('#address-element');
-      this.addressElement.on('change', this.handleAddressChange)
+      this.addressElement.on('change', this.handleAddressChange);
 
       this.paymentElement = await this.stripeService.createPaymentElement();
       this.paymentElement.mount('#payment-element');
@@ -68,21 +79,21 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.completionStatus.update(state => {
       state.address = event.complete;
       return state;
-    })
-  }
+    });
+  };
 
   handlePaymentChange = (event: StripePaymentElementChangeEvent) => {
     this.completionStatus.update(state => {
       state.card = event.complete;
       return state;
-    })
-  }
+    });
+  };
 
   handleDeliveryChange(event: boolean) {
     this.completionStatus.update(state => {
       state.delivery = event;
       return state;
-    })
+    });
   }
 
   async getConfirmationToken() {
@@ -96,7 +107,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     } catch (error: any) {
       this.snackbar.error(error.message);
     }
-
   }
 
   async onStepChange(event: StepperSelectionEvent) {
@@ -147,7 +157,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
         country: address.country,
         state: address.state,
         postalCode: address.postal_code
-      }
+      };
     } else return null;
   }
 

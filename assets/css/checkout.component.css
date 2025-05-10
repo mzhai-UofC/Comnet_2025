@@ -31,6 +31,11 @@ mat-stepper {
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+@media (max-width: 768px) {
+  mat-stepper {
+    orientation: vertical; /* 在手机模式下，垂直排列 */
+  }
+}
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {

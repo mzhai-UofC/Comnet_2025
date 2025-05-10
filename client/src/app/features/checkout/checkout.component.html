@@ -5,6 +5,7 @@
         <mat-stepper 
             (selectionChange)="onStepChange($event)"
             [linear]="true"
+            [orientation]="isMobile ? 'vertical' : 'horizontal'"
             #stepper 
             class="bg-white border border-gray-200 shadow-sm">
             <!-- Address Step -->
