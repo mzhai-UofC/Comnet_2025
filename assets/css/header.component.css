@@ -33,7 +33,7 @@ header .nav-links a:hover {
   color: gray; /* 悬停时的颜色 */
 }
 header .nav-links a.active {
-  color: rgb(192, 72, 192); /* 被选中时的文字颜色 */
+  color: #7d00fa; /* 被选中时的文字颜色 */
   font-weight: bold; /* 可选：加粗选中文字 */
 }
 header .user-actions {

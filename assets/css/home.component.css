@@ -137,6 +137,19 @@
   overflow-y: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+.homepage .modal .modal-content .close-button {
+  position: absolute;
+  top: 10px; /* 距顶部的距离 */
+  right: 10px; /* 距右侧的距离 */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+.homepage .modal .modal-content .close-button:hover {
+  color: #0056b3; /* 鼠标悬停时的颜色 */
+}
 .homepage .modal .modal-content .next-story-container {
   text-align: center;
   margin-top: 20px;
@@ -224,4 +237,12 @@
   .homepage .recent-updates .updates-list .update-item {
     flex: 1 1 100%;
   }
+}
+.homepage .footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px 0;
+  color: #555;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
 }/*# sourceMappingURL=home.component.css.map */

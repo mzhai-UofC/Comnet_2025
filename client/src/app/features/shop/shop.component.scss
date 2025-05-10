@@ -1,7 +1,7 @@
 /* 全局样式 */
 :host {
     display: block;
-    padding: 1rem;
+    padding: 1rem 1rem 0;
     background-color: #f9f9f9;
 }
 
@@ -86,4 +86,13 @@ form {
             font-size: 1rem; /* 调整图标大小 */
         }
     }
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 10px 0;
+  color: #555;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
 }
