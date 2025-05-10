@@ -6,14 +6,13 @@ import { CartService } from '../../../core/services/cart.service';
 import { DeliveryMethod } from '../../../shared/models/deliveryMethod';
 
 @Component({
-  selector: 'app-checkout-delivery',
-  standalone: true,
-  imports: [
-    MatRadioModule,
-    CurrencyPipe
-  ],
-  templateUrl: './checkout-delivery.component.html',
-  styleUrl: './checkout-delivery.component.scss'
+    selector: 'app-checkout-delivery',
+    imports: [
+        MatRadioModule,
+        CurrencyPipe
+    ],
+    templateUrl: './checkout-delivery.component.html',
+    styleUrl: './checkout-delivery.component.scss'
 })
 export class CheckoutDeliveryComponent implements OnInit {
   checkoutService = inject(CheckoutService);

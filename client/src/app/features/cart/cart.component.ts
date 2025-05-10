@@ -5,11 +5,10 @@ import { OrderSummaryComponent } from "../../shared/components/order-summary/ord
 import { EmptyStateComponent } from "../../shared/components/empty-state/empty-state.component";
 
 @Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [CartItemComponent, OrderSummaryComponent, EmptyStateComponent],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+    selector: 'app-cart',
+    imports: [CartItemComponent, OrderSummaryComponent, EmptyStateComponent],
+    templateUrl: './cart.component.html',
+    styleUrl: './cart.component.scss'
 })
 export class CartComponent {
   cartService = inject(CartService);

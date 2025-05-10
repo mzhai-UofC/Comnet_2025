@@ -11,21 +11,20 @@ import { JsonPipe } from '@angular/common';
 import { TextInputComponent } from "../../../shared/components/text-input/text-input.component";
 
 @Component({
-  selector: 'app-register',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatCard,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    MatButton,
-    JsonPipe,
-    MatError,
-    TextInputComponent
-],
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+    selector: 'app-register',
+    imports: [
+        ReactiveFormsModule,
+        MatCard,
+        MatFormField,
+        MatLabel,
+        MatInput,
+        MatButton,
+        JsonPipe,
+        MatError,
+        TextInputComponent
+    ],
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
   private fb = inject(FormBuilder);

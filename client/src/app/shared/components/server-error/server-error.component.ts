@@ -4,14 +4,13 @@ import { HttpErrorResponse } from '@angular/common/http';
  import { Router } from '@angular/router';
  
  @Component({
-   selector: 'app-server-error',
-   standalone: true,
-   imports: [
-     MatCard
-   ],
-   templateUrl: './server-error.component.html',
-   styleUrl: './server-error.component.scss'
- })
+    selector: 'app-server-error',
+    imports: [
+        MatCard
+    ],
+    templateUrl: './server-error.component.html',
+    styleUrl: './server-error.component.scss'
+})
  export class ServerErrorComponent {
    error?: any;
  

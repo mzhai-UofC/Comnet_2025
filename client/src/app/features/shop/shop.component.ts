@@ -15,22 +15,21 @@ import { Pagination } from '../../shared/models/pagination';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-shop',
-  standalone: true,
-  imports: [
-    MatCard,
-    ProductItemComponent,
-    MatButton,
-    MatIcon,
-    MatMenu,
-    MatSelectionList,
-    MatListOption,
-    MatMenuTrigger,
-    MatPaginator,
-    FormsModule
-],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss'
+    selector: 'app-shop',
+    imports: [
+        MatCard,
+        ProductItemComponent,
+        MatButton,
+        MatIcon,
+        MatMenu,
+        MatSelectionList,
+        MatListOption,
+        MatMenuTrigger,
+        MatPaginator,
+        FormsModule
+    ],
+    templateUrl: './shop.component.html',
+    styleUrl: './shop.component.scss'
 })
 export class ShopComponent {
   private shopService = inject(ShopService);

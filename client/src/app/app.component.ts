@@ -9,11 +9,10 @@ import { ShopComponent } from "./features/shop/shop.component";
 import { HomeComponent } from './features/home/home.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, ShopComponent, HomeComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+    selector: 'app-root',
+    imports: [RouterOutlet, HeaderComponent, ShopComponent, HomeComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent  {
  title = 'FatBun Universe';

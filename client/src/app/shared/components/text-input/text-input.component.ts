@@ -4,17 +4,16 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 
 @Component({
-  selector: 'app-text-input',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    MatFormField,
-    MatInput,
-    MatError,
-    MatLabel
-  ],
-  templateUrl: './text-input.component.html',
-  styleUrl: './text-input.component.scss'
+    selector: 'app-text-input',
+    imports: [
+        ReactiveFormsModule,
+        MatFormField,
+        MatInput,
+        MatError,
+        MatLabel
+    ],
+    templateUrl: './text-input.component.html',
+    styleUrl: './text-input.component.scss'
 })
 export class TextInputComponent implements ControlValueAccessor {
   @Input() label = '';

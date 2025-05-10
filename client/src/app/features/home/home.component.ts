@@ -4,14 +4,13 @@ import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-home',
-  standalone: true, // 声明为 standalone 组件
-  imports: [CommonModule,
-    MatButton,
-    MatIcon
-  ], // 添加 CommonModule
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home', // 声明为 standalone 组件
+    imports: [CommonModule,
+        MatButton,
+        MatIcon
+    ], // 添加 CommonModule
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   isModalOpen = false;

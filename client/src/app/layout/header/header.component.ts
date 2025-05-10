@@ -12,22 +12,21 @@ import { MatDivider } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [
-    MatIcon,
-    MatButton,
-    MatBadge,
-    RouterLink,
-    RouterLinkActive,
-    MatProgressBar,
-    MatMenu,
-    MatDivider,
-    MatMenuTrigger,
-    CommonModule, // 添加 CommonModule
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+    selector: 'app-header',
+    imports: [
+        MatIcon,
+        MatButton,
+        MatBadge,
+        RouterLink,
+        RouterLinkActive,
+        MatProgressBar,
+        MatMenu,
+        MatDivider,
+        MatMenuTrigger,
+        CommonModule, // 添加 CommonModule
+    ],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   busyService = inject(BusyService);
