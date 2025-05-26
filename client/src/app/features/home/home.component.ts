@@ -61,9 +61,30 @@ export class HomeComponent {
 
   // 定义最近更新数据
   recentUpdate = {
+    name: 'The Shortest Day 2022',
+    pages: [
+      '/images/comics/shortestDay2022.jpg' 
+    ]
+  };
+
+  recentUpdate1 = {
+    name: 'Last Meteor Shower 2022',
+    pages: [
+      '/images/comics/lastMeteorShower.jpg' 
+    ]
+  };
+
+   recentUpdate2 = {
+    name: "New Yeasr's first Order",
+    pages: [
+      '/images/comics/newYear2023.jpg' 
+    ]
+  };
+
+   recentUpdate3 = {
     name: 'Happy Easter 2025',
     pages: [
-      '/images/comics/easter2025.jpg' // 最近更新只有一张图片
+      '/images/comics/easter2025.jpg' 
     ]
   };
 

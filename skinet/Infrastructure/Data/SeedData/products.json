@@ -85,7 +85,7 @@
     "Description": "This acrylic keychain features an adorable design inspired by the PanPan Bunny's Wonderland Adventure series. ",
     "Price": 2.99,
     "PictureUrl": "/images/products/product_9.jpg",
-    "Type": "Gloves",
+    "Type": "Keychains",
     "Brand": "FatBun Universe",
     "QuantityInStock": 74
   },
@@ -160,5 +160,14 @@
     "Type": "Boots",
     "Brand": "FatBun Universe",
     "QuantityInStock": 27
+  },
+  {
+    "Name": "Me and PM - Acrylic Keychain Pendant",
+    "Description": "Limited Edition 2025",
+    "Price": 3.99,
+    "PictureUrl": "/images/products/product_18.jpg",
+    "Type": "Keychains",
+    "Brand": "FatBun Universe",
+    "QuantityInStock": 0
   }
 ]
