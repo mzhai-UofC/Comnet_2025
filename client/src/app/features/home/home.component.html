@@ -19,9 +19,9 @@
         <hr style="border: 1px dashed #ccc; margin: 10px 0;">
         
         <div class="button-group">
-          <button mat-flat-button color="primary" onclick="window.location.href='/buy-comic'">
-            <mat-icon>menu_book</mat-icon> Buy Comic Book
-          </button>
+            <button mat-flat-button color="primary" [routerLink]="['/shop', 1]">
+              <mat-icon>menu_book</mat-icon> Buy Comic Book
+            </button>
           <button mat-flat-button color="accent" onclick="window.location.href='/shop'">
             <mat-icon>shopping_cart</mat-icon> Go to Store
           </button>
@@ -79,7 +79,7 @@
       <div class="update-item" (click)="openModal(recentUpdate2)">
         <img src="\images\comics\newYear2023.jpg" alt="Update 3" />
         <div class="update-info">
-          <h3 class="update-title">New Yeasr's first Order</h3>
+          <h3 class="update-title">New Yeasr's First Order</h3>
           <p class="update-date">Jan 1, 2023</p>
         </div>
       </div>

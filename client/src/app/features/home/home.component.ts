@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common'; // 导入 CommonModule
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true, // 声明为 standalone 组件
   imports: [CommonModule,
     MatButton,
-    MatIcon
+    MatIcon,
+    RouterModule
   ], // 添加 CommonModule
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
