@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: windows-latest
     env:
-      PROJECT_PATH:./API
+      PROJECT_PATH: ./API
     permissions:
       contents: read #This is required for actions/checkout
 
