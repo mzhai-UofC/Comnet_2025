@@ -12,7 +12,7 @@ using Stripe;
 namespace API.Controllers;
 
 [ApiController]
-[Route("api/payment")]
+[Route("api/payments")]
 public class PaymentsController(IPaymentService paymentService, 
     IUnitOfWork unit, ILogger<PaymentsController> logger, 
     IConfiguration config, IHubContext<NotificationHub> hubContext) : BaseApiController
