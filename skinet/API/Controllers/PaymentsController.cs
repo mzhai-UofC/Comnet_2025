@@ -68,35 +68,44 @@ public class PaymentsController(IPaymentService paymentService,
     }
 
     private async Task HandlePaymentIntentSucceeded(PaymentIntent intent)
+{
+    logger.LogInformation("HandlePaymentIntentSucceeded called for PaymentIntentId={PaymentIntentId}, Status={Status}", intent.Id, intent.Status);
+    if (intent.Status == "succeeded") 
     {
-        logger.LogInformation("HandlePaymentIntentSucceeded called for PaymentIntentId={PaymentIntentId}, Status={Status}", intent.Id, intent.Status);
-        if (intent.Status == "succeeded") 
+        var spec = new OrderSpecification(intent.Id, true);
+
+        var order = await unit.Repository<Core.Entities.OrderAggregate.Order>().GetEntityWithSpec(spec);
+        if (order == null)
         {
-            var spec = new OrderSpecification(intent.Id, true);
+            logger.LogError("Order not found for PaymentIntentId={PaymentIntentId}", intent.Id);
+            return;
+        }
 
-            var order = await unit.Repository<Core.Entities.OrderAggregate.Order>().GetEntityWithSpec(spec)
-                ?? throw new Exception("Order not found");
+        if ((long)order.GetTotal() * 100 != intent.Amount)
+        {
+            logger.LogWarning("Payment amount mismatch for OrderId={OrderId}, PaymentIntentId={PaymentIntentId}", order.Id, intent.Id);
+            order.Status = OrderStatus.PaymentMismatch;
+        } 
+        else
+        {
+            order.Status = OrderStatus.PaymentReceived;
+        }
 
-            if ((long)order.GetTotal() * 100 != intent.Amount)
-            {
-                order.Status = OrderStatus.PaymentMismatch;
-            } 
-            else
-            {
-                order.Status = OrderStatus.PaymentReceived;
-            }
+        await unit.Complete();
 
-            await unit.Complete();
+        var connectionId = NotificationHub.GetConnectionIdByEmail(order.BuyerEmail);
 
-            var connectionId = NotificationHub.GetConnectionIdByEmail(order.BuyerEmail);
-
-            if (!string.IsNullOrEmpty(connectionId))
-            {
-                await hubContext.Clients.Client(connectionId)
-                    .SendAsync("OrderCompleteNotification", order.ToDto());
-            }
+        if (!string.IsNullOrEmpty(connectionId))
+        {
+            await hubContext.Clients.Client(connectionId)
+                .SendAsync("OrderCompleteNotification", order.ToDto());
+        }
+        else
+        {
+            logger.LogWarning("No SignalR connection found for BuyerEmail={BuyerEmail}", order.BuyerEmail);
         }
     }
+}
 
     private Event ConstructStripeEvent(string json)
 {
