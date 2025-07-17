@@ -1,4 +1,5 @@
 using API.Middleware;
+using API.Services;
 using API.SignalR;
 using Core.Entities;
 using Core.Interfaces;
