@@ -36,6 +36,10 @@ builder.Services.AddIdentityApiEndpoints<AppUser>()
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddSignalR();
 
+// 添加后台服务
+builder.Services.AddHostedService<RedisKeepAliveService>();
+builder.Services.AddHostedService<CartKeepAliveService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
